@@ -108,5 +108,3 @@ Possible next steps include:
 - Using model interpretability tools (feature importance, SHAP values)
 
 
-## 9. Repository Structure
-
