@@ -1,35 +1,112 @@
-# House Sale Price Prediction
+# House Price Prediction: Machine Learning Project
 
-### Predictive Modeling to Optimize Real Estate Listing Prices
+This project applies machine learning techniques to predict residential property sale prices.  
+It follows a clear, end-to-end structure: data cleaning, exploratory analysis, baseline modeling, and the development of a more robust model using tree-based methods.
+
+The goal is to build a practical, interpretable solution while demonstrating essential skills for tabular data projects.
+
+---
 
 ## 1. Project Overview
 
-This project was developed for RealAgents, a real estate company aiming to **optimize its listing prices** to reduce the time houses spend on the market. The core objective is to build a Machine Learning model that accurately predicts a house's final sale price based on its characteristics.
+The dataset contains typical real estate features, including:
 
-This repository contains the complete analysis, documented in the **House_Sales_Prediction.ipynb** Jupyter Notebook.
+- City  
+- Number of bedrooms  
+- House type  
+- Area (in square meters)  
+- Months listed  
 
-## 2. Technical Stack 
+Two models were used:
 
-* **Language:** Python
-* **Libraries:** Pandas (for data handling), Scikit-learn (for machine learning models), Matplotlib (for data visualization).
+- **Linear Regression** (baseline)
+- **Random Forest Regressor**
 
-## 3. Methodology and Key Findings
+The baseline model helps establish a starting point, while the Random Forest tests whether a more flexible approach can improve performance.
 
-The project followed a standard data science pipeline:
+---
 
-### 3.1 Data Cleaning and Preparation (Data Wrangling)
-This initial phase focused on ensuring data quality. Key steps included:
-* Handling missing values through imputation (filling gaps with the mean or most common value) for columns like `months_listed` and `area`.
-* Standardizing categorical text data (like abbreviations in `house_type`) and replacing non-standard missing values (like `--` in the `city` column).
+## 2. Technologies Used
 
-### 3.2 Exploratory Data Analysis (EDA)
-We investigated the relationship between the house features and the sale price.
-* **Key Insight:** Analysis confirmed the business team's hypothesis: the **number of bedrooms** is the primary driver of the house price, showing a clear, linear increase.
-* The analysis also showed that the **price variance** (how much prices differ) is much higher for larger houses, suggesting other factors like `city` and `area` are very important for high-value properties.
+- Python  
+- Pandas, NumPy  
+- Matplotlib / Seaborn  
+- Scikit-Learn  
 
-### 3.3 Predictive Modeling
-We compared two types of Regression models:
+---
 
-* **Baseline Model:** Simple Linear Regression, using only the `bedrooms` feature. This gives us a basic performance score to measure future improvements against.
-* **Comparison Model:** **Random Forest Regressor**. This more advanced model was used because it handles complex, non-linear relationships well. We used Scikit-learn **Pipelines** to automatically manage data preparation (like transforming text categories into numerical values) before training the model.
+## 3. Data Cleaning & Preparation
+
+The notebook performs several steps to make the dataset modeling-ready:
+
+- Converts the `sale_date` column to datetime  
+- Cleans the `area` column (removing text and converting to float)  
+- Standardizes `house_type` names  
+- Replaces placeholder `city` values with `"Unknown"`  
+- Fills missing values (e.g., median for `months_listed`)  
+- Converts all numeric columns to the correct dtype  
+
+A preprocessing pipeline was then created to:
+
+- Impute numerical features with the mean  
+- Impute categorical features with `"Unknown"`  
+- Apply one-hot encoding  
+
+This ensures the feature engineering stays consistent across models.
+
+---
+
+## 4. Exploratory Data Analysis
+
+The analysis includes:
+
+- Distribution of the target variable (`sale_price`)
+- Relationship between bedrooms and price  
+- Correlations among numerical features  
+- Basic trends within cities and house types  
+
+This helps understand the structure of the data before modeling.
+
+---
+
+## 5. Modeling
+
+### Baseline Model — Linear Regression  
+Used as a reference to evaluate whether more advanced models offer meaningful improvements.
+
+### Main Model — Random Forest Regressor  
+A more flexible model that captures non-linear relationships and feature interactions.  
+Both models were trained using the same preprocessing pipeline.
+
+---
+
+## 6. Results
+
+Evaluation metric: **RMSE (Root Mean Squared Error)**
+
+| Model                        | RMSE        |
+|-----------------------------:|------------:|
+| Linear Regression (Baseline) | 22,077.66   |
+| Random Forest Regressor      | 17,470.93   |
+
+### Interpretation
+
+- The Random Forest model achieves a significantly lower error.  
+- This shows that the dataset contains non-linear patterns that Linear Regression cannot capture.  
+- For this task, the Random Forest is the preferred model.
+
+---
+
+## 7. Future Improvements
+
+Possible next steps include:
+
+- Adding engineered features (e.g., price per m², city averages)
+- Trying gradient boosting models (XGBoost, LightGBM, CatBoost)
+- Running hyperparameter tuning
+- Applying cross-validation
+- Using model interpretability tools (feature importance, SHAP values)
+
+
+## 9. Repository Structure
 
