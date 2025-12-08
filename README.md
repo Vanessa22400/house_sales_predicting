@@ -33,24 +33,3 @@ We compared two types of Regression models:
 * **Baseline Model:** Simple Linear Regression, using only the `bedrooms` feature. This gives us a basic performance score to measure future improvements against.
 * **Comparison Model:** **Random Forest Regressor**. This more advanced model was used because it handles complex, non-linear relationships well. We used Scikit-learn **Pipelines** to automatically manage data preparation (like transforming text categories into numerical values) before training the model.
 
-## 4. How to Run the Project
-
-To review and run the analysis locally, please follow these simple steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [Your Repository Link Here]
-    cd [your-project-name]
-    ```
-2.  **Install the required libraries:**
-    *(Make sure you have a `requirements.txt` file listing your dependencies: pandas, scikit-learn, etc.)*
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Open the Notebook:** Run the **House_Sales_Prediction.ipynb** file using Jupyter Lab or Google Colab.
-
-## 5. Contact
-
-* **Author:** [Seu Nome Completo]
-* **LinkedIn:** [Link para o seu LinkedIn]
-* **Email:** [Seu Email]
